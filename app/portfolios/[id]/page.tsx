@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import Nav from "@/components/Nav";
+import Shell from "@/components/Shell";
 import { currentUser } from "@/lib/session";
 import { getPortfolio, valuePortfolio, getSecurities } from "@/lib/data";
 import { formatINR, formatPct } from "@/lib/finance";
@@ -24,12 +24,10 @@ export default function PortfolioPage({
   const gc = v.gainPaise >= 0 ? "text-gain" : "text-loss";
 
   return (
-    <>
-      <Nav user={me} />
-      <main className="mx-auto max-w-5xl px-4 py-6">
+    <Shell user={me} active="portfolios">
         <div className="mb-4">
           <Link href="/portfolios" className="text-sm text-muted hover:text-ink">&larr; Portfolios</Link>
-          <h1 className="mt-1 text-xl font-bold text-ink">{p.name}</h1>
+          <h1 className="h-serif mt-1 text-2xl font-bold">{p.name}</h1>
           <p className="text-xs uppercase tracking-wide text-muted">{p.broker ?? "—"} · {p.kind}</p>
         </div>
 
@@ -41,7 +39,7 @@ export default function PortfolioPage({
         </div>
 
         <section className="mb-6">
-          <h2 className="label mb-2">Holdings</h2>
+          <h2 className="h-serif mb-2 text-lg font-bold">Holdings</h2>
           {v.valued.length === 0 ? (
             <div className="card text-sm text-muted">No open holdings. Add a buy below.</div>
           ) : (
@@ -85,7 +83,7 @@ export default function PortfolioPage({
         </section>
 
         <section className="card max-w-2xl" id="add">
-          <h2 className="label mb-3">Add a transaction</h2>
+          <h2 className="h-serif mb-3 text-lg font-bold">Add a transaction</h2>
           {searchParams.error === "input" && (
             <p className="mb-3 text-sm text-loss">Pick a security and enter a positive quantity and price.</p>
           )}
@@ -129,7 +127,6 @@ export default function PortfolioPage({
             <button className="btn" type="submit">Add transaction</button>
           </form>
         </section>
-      </main>
-    </>
+    </Shell>
   );
 }
