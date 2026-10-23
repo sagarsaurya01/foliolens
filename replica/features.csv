@@ -1,0 +1,29 @@
+feature,area,priority,original,clone,notes
+Sign up / log in,auth,must,yes,yes,
+Create multiple portfolios,portfolios,must,yes,yes,broker/advisor-wise + consolidated
+Manual buy / sell transaction entry,transactions,must,yes,yes,core loop
+Holdings view: qty avg-cost LTP value unrealised G/L,holdings,must,yes,yes,derived never stored
+Live valuation of holdings,pricing,must,yes,yes,AMFI NAV + NSE endpoints (Sagar already has)
+Portfolio dashboard: value today/total gain allocation,dashboard,must,yes,yes,
+XIRR / annualised return,reports,must,yes,yes,cash-flow based
+Asset allocation chart,dashboard,must,yes,yes,by asset class
+Transaction list with edit/delete + charges,transactions,must,yes,partial,list+charges shown, edit/delete next
+Capital gains report (FIFO STCG/LTCG/intra-day),capital gains,must,yes,partial,Indian tax rules; the real value FIFO realised gains computed, report not surfaced yet
+Multi-asset support (equity MF bond FD NPS gold),assets,must,yes,partial,start equity+MF equity + MF in M0
+Import CAS (CAMS/KFintech) statement,import,should,yes,no,reuse portfolio-extract skill
+Import broker contract note / trade file,import,should,yes,no,start Zerodha
+Corporate actions (dividend split bonus merger),corporate actions,should,yes,no,adjust cost basis
+Schedule 112A + ITR-format export,capital gains,should,yes,no,grandfathering 31-Jan-2018
+Historical valuation report,reports,should,yes,no,end-of-month
+Family / group consolidation,groups,should,yes,no,individual + family level
+Reconciliation vs broker/demat,reconcile,should,yes,no,diff holdings
+Unrealised gain/loss (pre-sale tax estimate),reports,could,yes,no,
+Export to Excel / PDF / CSV,reports,could,yes,no,
+Holding period report,reports,could,yes,no,
+Goal / strategy (smallcase) portfolios,goals,could,yes,no,
+Mobile app,platform,could,yes,no,responsive web first
+700+ broker auto-import library,import,must,yes,skip,MProfit's moat; start with a few formats
+Live + historical licensed price feed,pricing,must,yes,skip,use free AMFI/NSE endpoints in v1
+Broker API integrations (Zerodha etc.),import,should,yes,skip,add later with user's own keys
+Wealth-manager multi-client SaaS,platform,should,yes,skip,different product; v1 single-user+family
+MProfit brand name/logo/colours,brand,must,yes,skip,rebrand step replaces
